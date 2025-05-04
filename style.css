@@ -1,0 +1,221 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #eee7e7;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#game-container {
+    position: relative;
+    width: 90vw; /* Adjusted for responsiveness */
+    height: 90vh; /* Ensures the game stays within view */
+    max-width: 1200px;
+    max-height: 800px;
+    border: 8px solid #ee8c8c;
+    background-color: #f5eded;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2vw;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.slipper-cursor {
+    cursor: url('assets/slipper_64.png') 32 32, url('assets/icon.png') 16 16, auto !important;
+}
+
+@media (max-width: 600px) {
+    .slipper-cursor {
+        cursor: url('assets/slipper_64.png') 24 24, url('assets/icon.png') 12 12, auto !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .slipper-cursor {
+        cursor: url('assets/slipper_64.png') 40 40, url('assets/icon.png') 20 20, auto !important;
+    }
+}
+
+#ui-top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 40px;
+    padding: 1vw;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#kills-ui {
+    text-align: left;
+}
+
+#timer-container {
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#muteBtn {
+    text-align: right;
+    padding: clamp(6px, 1vw, 8px) clamp(10px, 1.5vw, 12px);
+    background: transparent;
+    color: #000000;
+    border: 1px solid #ee4242;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 28px; /* Keep original font size */
+    z-index: 10;
+}
+
+#muteBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+@media (max-width: 768px) {
+    #game-container {
+        width: 95vw;
+        height: 95vh;
+        padding: 1.5vw;
+    }
+
+    #ui-top {
+        font-size: 18px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #muteBtn, #startBtn, #playAgainBtn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    #ui-top {
+        font-size: 16px;
+    }
+
+    #muteBtn, #startBtn, #playAgainBtn {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
+
+#gameInstructions {
+    font-size: 16px; /* Keep original font size */
+    color: #b0b0b0;
+    text-align: center;
+    max-width: 90%;
+    margin-bottom: 1vw;
+    z-index: 10;
+}
+
+#offline {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(20, 20, 20, 0.8);
+    color: white;
+    padding: clamp(15px, 3vw, 20px);
+    border-radius: 5px;
+    font-size: 18px; /* Keep original font size */
+    z-index: 100;
+}
+
+#startScreen {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(223, 109, 124, 0.8);
+    color: rgb(231, 112, 112);
+    padding: clamp(15px, 3vw, 20px);
+    border-radius: 10px;
+    text-align: center;
+    z-index: 100;
+    background: transparent;
+    border: 2px solid #f9a7a7;
+}
+
+#startScreen h2 {
+    font-size: 28px; /* Keep original font size */
+    margin: 0 0 10px;
+}
+
+#startScreen p {
+    font-size: 18px; /* Keep original font size */
+    margin: 0 0 10px;
+}
+
+#startBtn {
+    margin-top: 10px;
+    padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2.5vw, 20px);
+    background: #ffffff;
+    color: rgb(249, 167, 167);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Keep original font size */
+    border: 2px solid #f9a7a7;
+}
+
+#startBtn:hover {
+    background: #f6c6d9;
+}
+
+#gameOver {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.8);
+    color: rgba(240, 0, 0, 0.802);
+    padding: clamp(15px, 3vw, 20px);
+    border-radius: 5px;
+    font-size: 24px; /* Keep original font size */
+    text-align: center;
+    z-index: 100;
+    border: 2px solid #f9a7a7;
+}
+
+#highScore {
+    font-size: 15px; /* Keep original font size */
+    margin-top: 10px;
+}
+
+#playAgainBtn {
+    margin-top: 10px;
+    padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2.5vw, 20px);
+    background: #ffffff;
+    color: rgb(254, 18, 18);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px; /* Keep original font size */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: #ed0000 2px solid;
+}
+
+#playAgainBtn:hover {
+    background: #d97984;
+}

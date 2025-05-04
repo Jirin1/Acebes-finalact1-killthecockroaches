@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROACHES</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2b2b2b">
+
+</head>
+<body class="slipper-cursor">
+    <div id="game-container">
+        <div id="ui-top">
+            <span id="kills-ui">Kills: <span id="kills">0</span></span>
+            <div id="timer-container">
+                TIME
+                <span id="timer">90</span>
+            </div>
+            <button id="muteBtn">Mute</button>
+        </div>
+        <div id="gameInstructions">GO GO GO!</div>
+        <canvas id="gameCanvas"></canvas>
+    </div>
+    <div id="offline">No Internet Connection</div>
+    <div id="startScreen">
+        <h2>Kill the Roaches!</h2>
+        <p>Click the cockroaches to <br> kill them within 90 seconds!</p>
+        <button id="startBtn">Start</button>
+    </div>
+    <div id="gameOver">
+        <div>Game Over! <br>Kills: <span id="finalKills">0</span></div>
+        <div id="highScore">High Score: <span id="highScoreValue">0</span></div>
+        <button id="playAgainBtn">Play Again</button>
+    </div>
+    <audio id="bgMusic" loop src="assets/music.mp3"></audio>
+    <audio id="killSound" src="assets/kill.mp3"></audio>
+  
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</body>
+</html>
